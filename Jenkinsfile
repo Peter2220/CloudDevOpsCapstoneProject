@@ -33,7 +33,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
 					sh '''
-						kubectl config use-context arn:aws:eks:us-east-1:166730129144:cluster/capstonecluster
+						/usr/local/bin/kubectl config use-context arn:aws:eks:us-east-1:166730129144:cluster/capstonecluster
 					'''
 				}
 			}
@@ -43,7 +43,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
 					sh '''
-						kubectl apply -f ./blue-controller.json
+						/usr/local/bin/kubectl apply -f ./blue-controller.json
 					'''
 				}
 			}
@@ -53,7 +53,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
 					sh '''
-						kubectl apply -f ./green-controller.json
+						/usr/local/bin/kubectl apply -f ./green-controller.json
 					'''
 				}
 			}
@@ -63,7 +63,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
 					sh '''
-						kubectl apply -f ./blue-service.json
+						/usr/local/bin/kubectl apply -f ./blue-service.json
 					'''
 				}
 			}
@@ -79,7 +79,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
 					sh '''
-						kubectl apply -f ./green-service.json
+						/usr/local/bin/kubectl apply -f ./green-service.json
 					'''
 				}
 			}
