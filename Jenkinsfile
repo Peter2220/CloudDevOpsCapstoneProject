@@ -1,10 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Lint HTML') {
       agent any
       steps {
-        echo 'Hello World'
+        sh 'tidy -q -e *.html'
       }
     }
 
