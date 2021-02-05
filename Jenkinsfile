@@ -28,16 +28,6 @@ pipeline {
 				}
 			}
 		}
-		
-		stage('Set current kubectl context') {
-			steps {
-				withAWS(region:'us-east-1', credentials:'ecr_credentials') {
-					sh '''
-						/usr/local/bin/kubectl config use-context arn:aws:eks:us-east-1:166730129144:cluster/capstonecluster
-					'''
-				}
-			}
-		}
 
 		stage('Deploy blue container') {
 			steps {
